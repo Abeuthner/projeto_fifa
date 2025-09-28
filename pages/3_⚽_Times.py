@@ -11,3 +11,4 @@ st.set_page_config(
 )
 
 df = st.session_state["data"]
+df
