@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from datetime import datetime
 
 # Configurando a pagina
 
@@ -10,6 +11,10 @@ st.set_page_config(
 
 if "data" not in st.session_state:
     df = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv", index_col= 0)
+    df = df[df["Contract Valid Until"] >= datetime.today().year]
+    df = df[df["Value(£)"] > 0]
+    df = df.sort_values(by= "Overall", ascending=False)
+    st.session_state["data"] = df
 
 
 st.markdown("# FIFA 2023 ⚽ - OFICIAL!")
