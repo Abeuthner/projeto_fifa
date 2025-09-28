@@ -9,6 +9,7 @@ st.set_page_config(
 )
 
 df = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv")
+df
 
 st.title("FIFA 2023 ⚽!")
 st.link_button(
