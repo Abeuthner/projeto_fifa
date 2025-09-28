@@ -1,6 +1,15 @@
 import streamlit as st
 import pandas as pd
 
+# Configurando a pagina
+
+st.set_page_config(
+    page_title="Jogadores",
+    layout="wide",
+    page_icon='🏃'
+    
+)
+
 df = st.session_state["data"]
 
 clubes = sorted(df["Club"].dropna().unique())
@@ -27,5 +36,12 @@ st.divider()
 
 st.subheader(f"Overall: {player_stats.loc['Overall']}")
 st.progress(int(player_stats.loc['Overall']))
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric(label="Valor de Mercado", value=f'£ {player_stats.loc['Value(£)']:,}')
+col2.metric(label="Remuneração Semanal", value=f'£ {player_stats.loc['Wage(£)']:,}')
+col3.metric(label="Cláusula Rescisâo", value=f'£ {player_stats.loc['Release Clause(£)']:,}')
+
 
 

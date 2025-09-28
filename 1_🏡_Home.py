@@ -5,8 +5,10 @@ from datetime import datetime
 # Configurando a pagina
 
 st.set_page_config(
-    layout='centered'
-
+    page_title="Home",
+    layout='centered',
+    page_icon='🏡'
+    
 )
 
 if "data" not in st.session_state:
