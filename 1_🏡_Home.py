@@ -8,6 +8,10 @@ st.set_page_config(
 
 )
 
+if "data" not in st.session_state:
+    df = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv", index_col= 0)
+
+
 st.markdown("# FIFA 2023 ⚽ - OFICIAL!")
 st.sidebar.markdown("Desenvovimento: Amanda Beuthner")
 
@@ -18,8 +22,6 @@ st.link_button(
     type="primary"
 )
 
-df = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv")
-df
 
 st.markdown(
     """
