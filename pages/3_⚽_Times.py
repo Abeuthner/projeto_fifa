@@ -31,7 +31,8 @@ st.dataframe(df_filtered[filtro_colunas],
                  "Photo": st.column_config.LinkColumn(),
                  "Wage(£)": st.column_config.ProgressColumn("Weekly Wage", format="£ %f", min_value=0, max_value=df_filtered["Wage(£)"].max()),
                  "Flag": st.column_config.LinkColumn("Country"),
-                 "Value(£)": st.column_config.NumberColumn("Value(£)", format= 'localized')
+                 "Value(£)": st.column_config.NumberColumn("Value(£)", format= 'localized'),
+                 "Release Clause(£)": st.column_config.NumberColumn("Release Clause(£)", format= 'localized')
                  }) 
 
 
