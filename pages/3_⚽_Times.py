@@ -24,4 +24,14 @@ filtro_colunas = ["Age", "Photo", "Flag", "Overall", "Value(£)", "Wage(£)", "J
                   "Height(cm.)", "Weight(lbs.)",
                   "Contract Valid Until", "Release Clause(£)"]
 
-df_filtered
+st.dataframe(df_filtered[filtro_colunas],
+             column_config= {
+                 "Overall": st.column_config.ProgressColumn("Overall", format="%d", min_value=0, max_value=100),
+                 "Wage(£)": st.column_config.ProgressColumn("Weekly Wage", format="£ %f", min_value=0, max_value=df_filtered["Wage(£)"].max()),
+                 "Photo": st.column_config.LinkColumn(),
+                 "Wage(£)": st.column_config.ProgressColumn("Weekly Wage", format="£ %f", min_value=0, max_value=df_filtered["Wage(£)"].max()),
+                 "Flag": st.column_config.LinkColumn("Country"),
+                 "Value(£)": st.column_config.NumberColumn("Value(£)", format= 'localized')
+                 }) 
+
+
